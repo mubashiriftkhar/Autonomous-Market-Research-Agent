@@ -1,13 +1,13 @@
-from openai import OpenAI
+from langchain_openai import ChatOpenAI
 from tavily import TavilyClient
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-client = OpenAI(
+llm = ChatOpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key=os.getenv('deepseekKey'),
+  model="openrouter/bert-nebulon-alpha",
+  api_key=os.getenv('OpenRouterKey'),
 )
-
 
 tavily_client = TavilyClient(api_key=os.getenv("tavilyKey"))
